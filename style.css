@@ -1,0 +1,212 @@
+:root {
+            --dark-gray: #32363b;
+            --grass-green: #02b159;
+        }
+        html, body {
+            background-color: white;
+            border: none;
+            box-sizing: border-box;
+            color: var(--dark-gray);
+            padding: 0;
+            margin: 0;
+        }
+        html {
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            font-size: 18px;
+            font-size: 1.125rem;
+            line-height: 1.33333;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin: 1rem 1rem 2rem;
+            text-align: center;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        #startStopBtn {
+            display: inline-block;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            color: white;
+            background-color: var(--grass-green);
+            border: 0.15em solid var(--grass-green);
+            border-radius: 0.3em;
+            transition: all 0.3s;
+            box-sizing: border-box;
+            height: 3em;
+            line-height: 2.7em;
+            cursor: pointer;
+            /*box-shadow:0 0 0 rgba(0,0,0,0.1), inset 0 0 0 rgba(0,0,0,0.1);*/
+            font-weight: 600;
+        }
+        #startStopBtn:hover {
+            /*box-shadow: 0 0 2em rgba(0,0,0,0.1), inset 0 0 1em rgba(0,0,0,0.1);*/
+        }
+        #startStopBtn.running {
+            background-color: var(--dark-gray);
+            border-color: var(--dark-gray);
+            color: white;
+        }
+        #startStopBtn:before {
+            content: "Start Speed Test";
+        }
+        #startStopBtn.running:before {
+            content: "Abort";
+        }
+        #test {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        div.testArea {
+            display: inline-block;
+            width: calc(100% - 2rem - 2rem); /* subtract margins */
+            max-width: 16em;
+            margin: 2rem;
+            position: relative;
+            box-sizing: border-box;
+        }
+        div.testArea::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        div.testName {
+            bottom: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 9;
+        }
+        div.meterText {
+            bottom: 1.8em;
+            font-family: "Oswald", sans-serif;
+            font-size: 4em;
+            font-weight: 300;
+            left: 0;
+            line-height: 1;
+            position: absolute;
+            width: 100%;
+            z-index: 9;
+        }
+        div.meterText:empty:before {
+            content: "0.00";
+        }
+        div.unit {
+            bottom: 3.5em;
+            font-family: "Oswald", sans-serif;
+            font-size: 1.5em;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            left: 0;
+            line-height: 1;
+            position: absolute;
+            text-transform: uppercase;
+            width: 100%;
+            z-index: 9;
+        }
+        div.testArea canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        #ipArea {
+            margin-top: 2rem;
+        }
+        #shareArea {
+            width: 95%;
+            max-width: 25em;
+            margin: 0 auto;
+            margin-top: 2em;
+        }
+        #shareArea > * {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0.25em 0;
+        }
+        #privacyPolicy {
+            position: fixed;
+            top: 10em;
+            bottom: 10em;
+            left: 15em;
+            right: 15em;
+            overflow-y: auto;
+            width: auto;
+            height: auto;
+            box-shadow: 0 0 3em 1em #000000;
+            z-index: 999999;
+            text-align: left;
+            background-color: #FFFFFF;
+            padding: 1em;
+        }
+        #privacyCloseBtn {
+            display: inline-block;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            color: white;
+            background-color: var(--grass-green);
+            border: 0.15em solid var(--grass-green);
+            border-radius: 0.3em;
+            transition: all 0.3s;
+            box-sizing: border-box;
+            height: 3em;
+            line-height: 2.7em;
+            cursor: pointer;
+            /*box-shadow:0 0 0 rgba(0,0,0,0.1), inset 0 0 0 rgba(0,0,0,0.1);*/
+            font-weight: 600;
+        }
+        #resultsURL {
+            color: #333;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.2rem;
+            background-color: rgb(255, 255, 255);
+            border: green;
+            display: block;
+            border-style: dashed;
+            border-width: 2px;
+            margin: 0.8em 0 0.8em 0;
+        }
+        #testId {
+            margin-top: 1.4em;
+        }
+        a.privacy {
+            margin-top: 2em;
+            text-align: center;
+            font-size: 0.8em;
+            color: #808080;
+            display: block;
+        }
+        @media all and (max-width: 65em) {
+            /* 1040 px */
+            div.testGroup {
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+            div.testArea {
+                font-size: 1.5384615vw; /* 16 px */
+                margin: 1rem;
+                width: calc(100% - 1rem - 1rem); /* subtract margins */
+            }
+        }
+        @media all and (max-width: 40em) {
+            /* 640 px */
+            div.testArea {
+                font-size: 0.8em; /* 12.8 px */
+            }
+        }
+    
